@@ -1,41 +1,69 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-  // This widget is the root of your application.
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // Application name
-      title: 'Flutter Hello World',
-      // Application theme data, you can set the colors for the application as
-      // you want
-      theme: ThemeData(
-        // useMaterial3: false,
-        primarySwatch: Colors.blue,
-      ),
-      // A widget which will be started on application startup
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  final String title;
-  const MyHomePage({super.key, required this.title});  
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        // The title text which will be shown on the action bar
-        title: Text(title),
-      ),
-      body: Center(
-        child: Text(
-          'Hello, World!',
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Luis Cesar Cervantes Mat:1057'),
+          backgroundColor: Colors.indigo,
+          centerTitle: true,
+        ),
+        body: Center(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              // Container único con contenido en línea (Row)
+              Container(
+                width: 300,
+                height: 100,
+                decoration: BoxDecoration(
+                  color: Colors.teal[200], // 1. Color
+                  borderRadius:
+                      BorderRadius.circular(15), // 2. Bordes redondeados
+                  boxShadow: [
+                    // 3. Sombra
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      blurRadius: 8,
+                      spreadRadius: 2,
+                      offset: const Offset(0, 3),
+                    )
+                  ],
+                ),
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                // Contenido en fila (no Column)
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Icon(
+                      // 4. Icono
+                      Icons.star,
+                      size: 40,
+                      color: Colors.indigo,
+                    ),
+                    Text(
+                      // 5. Texto
+                      'Container en Fila',
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.indigo[800],
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
